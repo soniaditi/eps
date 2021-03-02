@@ -35,31 +35,7 @@ public class App
     	int choice=0;
    		Scanner sc= new Scanner(System.in);
    		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//        Doctors doc= new Doctors();
-       // int result=doctor.update(doc);
-////        doc.getDocDetails();
-////        int result=doctor.insert(doc);
-////        System.out.println("doctor updated "+result);
-       // doc=doctor.SearchByFname("moto");
-        
-       
-//        Drug  drugs= new Drug();
-//        drugs= drug.SearchByName("metformin");
-////        drugs.getDrugDetails();
-////        int result=drug.insert(drugs);
-//       List<Drug> drugList= drug.getOutOfStockDrugList();
-//       for(Drug d:drugList) {
-//    	   System.out.println(d);
-//       }
-//      int rs=drug.totalOrderCount();
-//      System.out.println(rs);
-      
-      
-  		
-  		
-  		
-  		
-  		
+   		
   		do {
   			System.out.println("**************Welcome to Pharmacy Records********************");
   			System.out.println("Enter 1 to see menu for Drug Table");
