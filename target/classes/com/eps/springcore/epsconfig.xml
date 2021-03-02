@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ <context:property-placeholder location="classpath:com/eps/springcore/pharma-info.properties" />
+	
+	<!-- bean to create dataSource object -->
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds" >
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/eps"/>
+		<property name="username" value="root" />
+		<property name="password" value="8237446759" />
+	</bean>
+	
+	<!-- jdbc bean -->
+	<bean class="org.springframework.jdbc.core.JdbcTemplate" name="jdbcTemplate" >
+		<property name="dataSource" >
+		<ref bean="ds" />
+		</property>
+	</bean>	
+	
+	
+	
+	<!-- giving jdbc bean reference to jdbcTemplate variable of doctordao class -->
+	<bean class="com.eps.springcore.db.DoctorDaoImpl" name="doctor1">
+		<property name="jdbcTemplate">
+		<ref bean="jdbcTemplate"/>
+		</property>
+	</bean>
+	
+	<bean class="com.eps.springcore.db.DrugDaoImpl" name="drug1">
+	<property name="jdbcTemplate">
+		<ref bean="jdbcTemplate"/>
+		</property>
+	</bean>
+	
+	<bean class="com.eps.springcore.db.OrderDaoImpl" name="order1">
+	<property name="jdbcTemplate">
+		<ref bean="jdbcTemplate"/>
+		</property>
+	</bean>
+	
+	<bean class="com.eps.springcore.Pharmacy" id="pharmacy">
+	<property name="name" value="${name}"/>
+	<property name="licenseNo" value="${licenseNo}"/>
+	<property name="contactNo" value="${contactNo}"/>
+	<property name="Address" value="${Address}"/>
+	</bean>
+	
+	
+	
+</beans>
